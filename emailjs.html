@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp page</title>
+        <style>
+            body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('gg.jpeg'); 
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Center the signup and login divs */
+    align-items: center;
+}
+
+/* Transparent signup and login divs */
+#signup,
+#login {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for transparency */
+    max-width: 400px;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+        
+        /* Other styles remain the same */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #verify,
+        #pass {
+            display: none;
+        }
+        #login{
+            display: none;
+        }
+            
+        </style>
+    </head>
+    <body>
+        <div id="signup">
+            <!-- <form action=""> -->
+                <fieldset>
+                    <legend><h1>Sign Up</h1></legend>
+                    <section id="name_email">
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" name="name"><br><br>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <button id="butt" onclick="sendotp()" >SignUp</button><br><br>
+                    <button id="already" onclick="already_account()">Already have an Account</button><br><br>
+                </section>
+                    <div id="veri-pass">
+                    <section id="verify">
+                        <label for="otp">OTP :</label>
+                        <input type="text" id="otp" name="otp"><br><br>
+                        <button type="submit" onclick="otp_verification()">Verify</button><br><br>
+                    </section>
+                    <section id="pass">
+                    <label for="pwd">Password :</label>
+                    <input type="password" id="pwd" name="password"><br><br>
+                    <label for="cpwd">Confirm Password :</label>
+                    <input type="password" id="cpwd" name="password"><br><br>
+                    <button id="butt" onclick="password_confirmation()">Submit</button><br><br>
+                </section>
+            </div>
+                </fieldset>
+            <!--</form>-->
+        </div>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+            <script src="./index.js">
+            </script>
+            
+    </body>
+</html>

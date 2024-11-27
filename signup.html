@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp page</title>
+        <style>
+            body{
+                padding-left: 45%;
+                padding-right: 55%;
+                padding-top: 5%;
+            }
+            legend{
+                text-align: center;
+            }
+            #veri-pass{
+                display: none;
+            }
+            #butt{
+                display: block;
+                margin: 0 auto;
+            }
+
+            
+        </style>
+        
+    </head>
+    <body>
+        <div id="signup">
+            <form action="">
+                <fieldset>
+                    <legend><h1>Sign Up</h1></legend>
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" name="name"><br><br>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <button id="butt" onclick="sendotp()">Verification</button><br><br>
+                    <div id="veri-pass">
+                    <section id="veriy">
+                        <label for="otp">OTP :</label>
+                        <input type="text" id="otp" name="otp"><br><br>
+                    </section>
+                    <section id="pass">
+                    <label for="pwd">Password :</label>
+                    <input type="password" id="pwd" name="password"><br><br>
+                    <label for="cpwd">Confirm Password :</label>
+                    <input type="password" id="cpwd" name="password"><br><br>
+                </section>
+                <button id="butt">Submit</button>
+            </div>
+                </fieldset>
+            </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+function sendotp(){
+    const email = document.getElementById("email").value;
+    let otp = Math.floor(Math.random()*10000);
+    console.log("Function Call....");
+    Email.send({
+    SecureToken : "6dc4054d-b965-4018-b95a-62b6d374c95c",
+    To : email,
+    From : "ramireddymanikantareddy3010@gmail.com",
+    Subject : "OTP for verification",
+    Body : "Your OTP is : "+ otp
+}).then(
+  message => {
+    if(message=="OK"){
+        alert("OTP sent to your mail:"+email);
+    }
+  }
+);}
+
+        </script>
+    </body>
+</html>
